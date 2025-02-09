@@ -70,11 +70,11 @@ def get_tile_from_xy(x,y):
     great_x = x // 32
     return great_x + PAGE_TILES_HEIGHT*great_y
 
-def write_page_bmp(b_pal_path, rgb_colours, out_bmp_path):
+def write_page_bmp(b_tile_path, rgb_colours, out_bmp_path):
     page_bmp = Image.new('RGB', (PAGE_WIDTH, PAGE_HEIGHT))
     pixels = page_bmp.load()
 
-    with open(b_pal_path, 'rb') as file:
+    with open(b_tile_path, 'rb') as file:
         for y in range(PAGE_HEIGHT):
             for x in range(0,PAGE_WIDTH,2):
                 
