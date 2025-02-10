@@ -138,8 +138,8 @@ def create_8bits_palettes(all_level_colours):
 
 
 def get_tile_from_xy(x,y):
-    great_y = y // 32
-    great_x = x // 32
+    great_y = y // TILE_HEIGHT
+    great_x = x // TILE_WIDTH
     return great_x + PAGE_TILES_HEIGHT*great_y
 
 def get_xy_from_tile(tile_idx):
@@ -184,24 +184,29 @@ def write_all_tiles_from_level(level, palettes, tiles_per_palette_array):
                 pixels = tile_rgb_bmp.load()
 
                 # position the first byte to be read in the binary
-                file.seek(16*tile_idx + ( PAGE_WIDTH*(TILE_HEIGHT - 1) // 2 )*(tile_idx // 8))
+                file.seek((TILE_WIDTH//2)*tile_idx + ( PAGE_WIDTH*(TILE_HEIGHT - 1) // 2 )*(tile_idx // PAGE_TILES_HEIGHT))
 
                 for y in range(offset_y, offset_y + TILE_HEIGHT):
-                    for x in range(offset_x, offset_x + TILE_WIDTH, 2):
+                    for x in range(offset_x, offset_x + TILE_WIDTH, 2):   # 2 pixels per byte
                         idx1, idx2 = two_nibble_from_byte( int.from_bytes(file.read(1)))
 
                         page_x , page_y = 2*(x - offset_x), 2*(y - offset_y)
 
-                        pixels[page_x, page_y] = rgb_colours[tile_idx][idx2]
-                        pixels[page_x +1 , page_y] = rgb_colours[tile_idx][idx2]
-                        pixels[page_x, page_y + 1] = rgb_colours[tile_idx][idx2]
-                        pixels[page_x + 1, page_y + 1] = rgb_colours[tile_idx][idx2]
+                        colour_1 = rgb_colours[tile_idx][idx2]
+                        colour_2 = rgb_colours[tile_idx][idx1]
 
-                        pixels[page_x + 2, page_y] = rgb_colours[tile_idx][idx1]
-                        pixels[page_x + 3, page_y] = rgb_colours[tile_idx][idx1]
-                        pixels[page_x + 2, page_y + 1] = rgb_colours[tile_idx][idx1]
-                        pixels[page_x + 3, page_y + 1] = rgb_colours[tile_idx][idx1]
-                    file.read(32*7 // 2)  # skip some bytes to get the row below
+                        pixels[page_x, page_y] = colour_1
+                        pixels[page_x +1 , page_y] = colour_1
+                        pixels[page_x, page_y + 1] = colour_1
+                        pixels[page_x + 1, page_y + 1] = colour_1
+
+                        pixels[page_x + 2, page_y] = colour_2
+                        pixels[page_x + 3, page_y] = colour_2
+                        pixels[page_x + 2, page_y + 1] = colour_2
+                        pixels[page_x + 3, page_y + 1] = colour_2
+                    
+                    # skip some bytes to get the row below
+                    file.read( TILE_WIDTH*(PAGE_TILES_HEIGHT - 1) // 2 )  
                 
                 true_tile_idx = tile_idx + page*TILES_PER_PAGE  # 0 to 383
                 
@@ -213,6 +218,7 @@ def write_all_tiles_from_level(level, palettes, tiles_per_palette_array):
                 # convert ...(r,g,b)... to ...r,g,b...
                 pal = ajust_palette(palette)
 
+                # contraption to convert the RGB to palette
                 p_img = Image.new('P', (16, 16))
                 p_img.putpalette(pal)
 
