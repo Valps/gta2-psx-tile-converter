@@ -87,6 +87,34 @@ def write_page_bmp(b_tile_path, rgb_colours, out_bmp_path):
     page_bmp.save(out_bmp_path)
     return
 
+def write_large_page_bmp(b_tile_path, rgb_colours, out_bmp_path):
+    page_bmp = Image.new('RGB', (2*PAGE_WIDTH, 2*PAGE_HEIGHT))
+    pixels = page_bmp.load()
+
+    with open(b_tile_path, 'rb') as file:
+        for y in range(PAGE_HEIGHT):
+            for x in range(0, PAGE_WIDTH, 2):
+                
+                idx1, idx2 = two_nibble_from_byte( int.from_bytes(file.read(1)))
+
+                tile_idx = get_tile_from_xy(x,y)
+
+                page_x , page_y = 2*x, 2*y
+
+                pixels[page_x, page_y] = rgb_colours[tile_idx][idx2]
+                pixels[page_x +1 , page_y] = rgb_colours[tile_idx][idx2]
+                pixels[page_x, page_y + 1] = rgb_colours[tile_idx][idx2]
+                pixels[page_x + 1, page_y + 1] = rgb_colours[tile_idx][idx2]
+
+                pixels[page_x + 2, page_y] = rgb_colours[tile_idx][idx1]
+                pixels[page_x + 3, page_y] = rgb_colours[tile_idx][idx1]
+                pixels[page_x + 2, page_y + 1] = rgb_colours[tile_idx][idx1]
+                pixels[page_x + 3, page_y + 1] = rgb_colours[tile_idx][idx1]
+
+                #pixels[x+1,y] = rgb_colours[tile_idx][idx1]
+    page_bmp.save(out_bmp_path)
+    return
+
 def main():
     for level in LEVELS:
         for page in range(6):   #  page + 1
@@ -100,6 +128,9 @@ def main():
 
                 print("Opening file: " + str(binary_tiles_path))
                 write_page_bmp(binary_tiles_path, rgb_colours, output_path)
+
+                output_path = ROOT_DIR / level / "converted" / "large" / (level + "_page_" + str(page+1) + "_large.bmp")
+                write_large_page_bmp(binary_tiles_path, rgb_colours, output_path)
 
 
 if __name__ == "__main__":
