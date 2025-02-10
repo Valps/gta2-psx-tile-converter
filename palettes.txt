@@ -1,0 +1,26 @@
+bil_0.bmp to bil_52.bmp uses the same palette
+bil_53.bmp to bil_113.bmp uses the same palette
+bil_114.bmp to bil_162.bmp uses the same palette
+bil_163.bmp to bil_218.bmp uses the same palette
+bil_219.bmp to bil_300.bmp uses the same palette
+bil_301.bmp to bil_348.bmp uses the same palette
+bil_349.bmp to bil_383.bmp uses the same palette
+
+ste_0.bmp to ste_30.bmp uses the same palette
+ste_31.bmp to ste_82.bmp uses the same palette
+ste_83.bmp to ste_124.bmp uses the same palette
+ste_125.bmp to ste_172.bmp uses the same palette
+ste_173.bmp to ste_231.bmp uses the same palette
+ste_232.bmp to ste_266.bmp uses the same palette
+ste_267.bmp to ste_336.bmp uses the same palette
+ste_337.bmp to ste_383.bmp uses the same palette
+
+wil_0.bmp to wil_54.bmp uses the same palette
+wil_55.bmp to wil_90.bmp uses the same palette
+wil_91.bmp to wil_157.bmp uses the same palette
+wil_158.bmp to wil_203.bmp uses the same palette
+wil_204.bmp to wil_250.bmp uses the same palette
+wil_251.bmp to wil_300.bmp uses the same palette
+wil_301.bmp to wil_329.bmp uses the same palette
+wil_330.bmp to wil_369.bmp uses the same palette
+wil_370.bmp to wil_383.bmp uses the same palette
