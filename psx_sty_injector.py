@@ -338,8 +338,9 @@ def inject_tiles(sty_path, chunk_infos, level):
                     tgt_sty_file.seek(tile_data_offset + 64*tile_idx + 256*row_idx + 63*256*(tile_idx // 4) )   # get row offset in .sty binary
                     tgt_sty_file.write(bmp_data_reversed[ (row_idx*64 + 64) : (row_idx*64) : -1 ])  # reverse this piece of the row
 
-
-
+# TODO:
+def change_surface_types(output_path, chunk_infos, PSX_sty_file_path, game_ovl_file_path):
+    return
 
 
 
@@ -425,6 +426,16 @@ def main():
 
     # change .sty tiles
     inject_tiles(output_path, chunk_infos, level)
+
+    # change surface types
+    # load directly from PSX file
+    PSX_sty_file_path = ROOT_DIR / (f"{level.upper()}.STY")
+    game_ovl_file_path = ROOT_DIR / ("GAME.OVL")
+
+    if ( PSX_sty_file_path.exists()
+        and game_ovl_file_path.exists() ):
+        print(f"Original PSX file found: {level.upper()}.STY and GAME.OVL")
+        change_surface_types(output_path, chunk_infos, PSX_sty_file_path, game_ovl_file_path)
 
     print("All PSX tiles injected successfully")
 
