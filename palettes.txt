@@ -1,26 +1,26 @@
-bil_0.bmp to bil_52.bmp uses the same palette
-bil_53.bmp to bil_113.bmp uses the same palette
-bil_114.bmp to bil_162.bmp uses the same palette
-bil_163.bmp to bil_218.bmp uses the same palette
-bil_219.bmp to bil_300.bmp uses the same palette
-bil_301.bmp to bil_348.bmp uses the same palette
-bil_349.bmp to bil_383.bmp uses the same palette
+bil_0.bmp to bil_52.bmp uses palette 0
+bil_53.bmp to bil_114.bmp uses palette 1
+bil_115.bmp to bil_164.bmp uses palette 2
+bil_165.bmp to bil_221.bmp uses palette 3
+bil_222.bmp to bil_304.bmp uses palette 4
+bil_305.bmp to bil_353.bmp uses palette 5
+bil_354.bmp to bil_383.bmp uses palette 6
 
-ste_0.bmp to ste_30.bmp uses the same palette
-ste_31.bmp to ste_82.bmp uses the same palette
-ste_83.bmp to ste_124.bmp uses the same palette
-ste_125.bmp to ste_172.bmp uses the same palette
-ste_173.bmp to ste_231.bmp uses the same palette
-ste_232.bmp to ste_266.bmp uses the same palette
-ste_267.bmp to ste_336.bmp uses the same palette
-ste_337.bmp to ste_383.bmp uses the same palette
+ste_0.bmp to ste_30.bmp uses palette 0
+ste_31.bmp to ste_83.bmp uses palette 1
+ste_84.bmp to ste_126.bmp uses palette 2
+ste_127.bmp to ste_175.bmp uses palette 3
+ste_176.bmp to ste_235.bmp uses palette 4
+ste_236.bmp to ste_271.bmp uses palette 5
+ste_272.bmp to ste_342.bmp uses palette 6
+ste_343.bmp to ste_383.bmp uses palette 7
 
-wil_0.bmp to wil_54.bmp uses the same palette
-wil_55.bmp to wil_90.bmp uses the same palette
-wil_91.bmp to wil_157.bmp uses the same palette
-wil_158.bmp to wil_203.bmp uses the same palette
-wil_204.bmp to wil_250.bmp uses the same palette
-wil_251.bmp to wil_300.bmp uses the same palette
-wil_301.bmp to wil_329.bmp uses the same palette
-wil_330.bmp to wil_369.bmp uses the same palette
-wil_370.bmp to wil_383.bmp uses the same palette
+wil_0.bmp to wil_54.bmp uses palette 0
+wil_55.bmp to wil_91.bmp uses palette 1
+wil_92.bmp to wil_159.bmp uses palette 2
+wil_160.bmp to wil_206.bmp uses palette 3
+wil_207.bmp to wil_254.bmp uses palette 4
+wil_255.bmp to wil_305.bmp uses palette 5
+wil_306.bmp to wil_335.bmp uses palette 6
+wil_336.bmp to wil_376.bmp uses palette 7
+wil_377.bmp to wil_383.bmp uses palette 8
