@@ -120,14 +120,13 @@ def create_8bits_palettes(all_level_colours):
             tiles_per_palette += 1
         else:
             # wrap palette
-
             pad_palette(palette_chunk)      # fill in the last slots with pad colours, if they are empty
             palettes.append(palette_chunk)  # add palette chunk
 
             # attach number of tiles for this palette
             tiles_per_palette_array.append(tiles_per_palette)
 
-            tiles_per_palette = 0      # reset num tiles per palette
+            tiles_per_palette = 1      # reset num tiles per palette
             palette_chunk = []         # reset array
     
     # finish last palette
@@ -261,6 +260,7 @@ def main():
 
         print_all_palettes_used(level, tiles_per_palette_array) # print which palette the tiles uses
 
+    
 
 if __name__ == "__main__":
     main()

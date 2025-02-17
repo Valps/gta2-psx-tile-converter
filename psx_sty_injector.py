@@ -133,7 +133,7 @@ def create_8bits_palettes(all_level_colours):
             # attach number of tiles for this palette
             tiles_per_palette_array.append(tiles_per_palette)
 
-            tiles_per_palette = 0      # reset num tiles per palette
+            tiles_per_palette = 1      # reset num tiles per palette
             palette_chunk = []         # reset array
     
     # finish last palette
